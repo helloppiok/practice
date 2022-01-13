@@ -1,0 +1,88 @@
+/*main.css*/
+
+@font-face {
+    font-family: 'KyoboHand';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, p, div, span, a, table, th, td, input, textarea, option, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, small, button {
+	font-family: 'KyoboHand';
+}
+
+
+
+html, body {
+	background-color: #fae1dd;
+	height: 100%;
+}
+
+html {
+	overflow-y: scroll;
+	}
+
+.main {
+	background-color: #f8edeb;
+	width: 800px;
+	min-height: 100%;
+	margin: 0px auto;
+	box-shadow: 0px 0px 5px #ffadad;
+}
+
+.header {
+	height: 80px;
+	border-bottom: 1px solid #f08080;
+	padding: 20px;
+}
+
+.content {
+	height: 650px;
+	padding: 20px;
+}
+
+.footer {
+	height: auto;
+	border-top: 1px solid #f08080;
+	padding: 20px;
+	text-align : center;
+	color: #495057;
+}
+
+
+.header .title {
+	margin: 0;
+	padding: 0;
+	font-variant: small-caps;
+}
+
+.header .menu {
+	float: right;
+	list-style: none;
+	font-variant: small-caps;
+}
+
+.header .menu li {
+	float: left;
+	margin: -10px 10px;
+	cursor: pointer;
+	
+}
+
+.header .menu li:hover {
+	color: #c9184a;
+}
+
+
+.header .menu {
+	font-size: 1.2em;
+}
+
+
+
+
+
+
+
+
+

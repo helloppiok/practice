@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #chart {
+            width: 1000px;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- ex19_chart.html -->
+    <h1>차트만들기</h1>
+
+
+    <div id="chart"></div>
+
+    <script src="../highcharts.js"></script>
+    <script src="../series-label.js"></script>
+    <script src="../exporting.js"></script>
+    <script src="../export-data.js"></script>
+    <script src="../accessibility.js"></script>
+
+    <script>
+        Highcharts.chart('chart', {
+
+title: {
+    text: '삐옥이 체중 변화, 2021'
+},
+
+subtitle: {
+    text: 'Source: 우리집 삐옥이'
+},
+
+yAxis: {
+    title: {
+        text: '몸무게(g)'
+    }
+},
+
+xAxis: {
+    accessibility: {
+        rangeDescription: 'Range: 2022 to 2023'
+    }
+},
+
+legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+},
+
+plotOptions: {
+    series: {
+        label: {
+            connectorAllowed: false
+        },
+        pointStart: 1
+    }
+},
+
+series: [{
+    name: '삐옥이',
+    data: [540, 560, 590, 600, 650, 610, 600, 620, 660, 600, 610, 600]
+}
+,
+{
+    name: '삐오기 친구',
+    data: [1040, 1260, 1090, 1200, 1150, 1010, 1000, 1020, 1060, 1000, 1210, 1240]
+}],
+
+responsive: {
+    rules: [{
+        condition: {
+            maxWidth: 500
+        },
+        chartOptions: {
+            legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom'
+            }
+        }
+    }]
+}
+
+});
+    </script>
+
+
+
+
+</body>
+</html>

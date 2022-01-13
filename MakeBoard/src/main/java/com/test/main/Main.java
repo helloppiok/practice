@@ -1,8 +1,23 @@
 package com.test.main;
 
-public class Main {
+import java.io.IOException;
 
-	public static void main(String[] args) {
-		System.out.println("branch 변경 test합니다");
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/main.do")
+public class Main extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/main.jsp");
+
+		dispatcher.forward(req, resp);
+
 	}
 }
