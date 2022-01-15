@@ -4,7 +4,7 @@
 	.title:first-letter {
 		
 		<c:if test="${not empty id}">
-		color: cornflowerblue;
+		color: #c9184a;
 		</c:if>
 		
 	}
@@ -13,7 +13,7 @@
 <!-- inc/header.jsp -->
 <header class="header">
 
-	<h1 class="title">Hello ppiok</h1>
+	<h1 class="title" onclick="location.href='/makeboard/main.do';">Hello ppiok</h1>
 	
 	<ul class="menu">
 		<li onclick="location.href='/makeboard/main.do';">Home</li>

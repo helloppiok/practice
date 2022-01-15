@@ -9,6 +9,8 @@
 
 body, p, div, span, a, table, th, td, input, textarea, option, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, small, button {
 	font-family: 'KyoboHand';
+	/* font-size: 1.2em; */
+	
 }
 
 
@@ -34,6 +36,7 @@ html {
 	height: 80px;
 	border-bottom: 1px solid #f08080;
 	padding: 20px;
+	
 }
 
 .content {
@@ -54,6 +57,8 @@ html {
 	margin: 0;
 	padding: 0;
 	font-variant: small-caps;
+	cursor: pointer;
+	
 }
 
 .header .menu {
@@ -77,6 +82,71 @@ html {
 .header .menu {
 	font-size: 1.2em;
 }
+
+
+
+/* 목록보기 테이블 */
+.table.list {
+	width: 700px;
+	margin: 0px auto;
+	background-color: #F1EDED;
+	border-color: #b5838d;
+}
+.table.list th {
+	background-color: #f08080;
+	color : white;
+}
+
+.table.list th, .table.list td { text-align: center; }
+
+.table.list th:nth-child(1) { width: 60px; }
+.table.list th:nth-child(2) { width: auto; }
+.table.list th:nth-child(3) { width: 80px; }
+.table.list th:nth-child(4) { width: 120px; }
+.table.list th:nth-child(5) { width: 60px; }
+.table.list td:nth-child(2) { text-align: left; }
+
+
+/* 버튼 컨테이너 */
+.btns {
+	width: 700px;
+	margin: 20px auto;	
+	text-align: right;
+}
+
+
+/* 글쓰기 테이블 */
+.table.add {
+	width: 700px;
+	margin: 0 auto;
+}
+
+.table.add th { width: 150px; text-align: center; vertical-align: middle; }
+.table.add td { width: 550px; }
+
+.table.add textarea { resize: none; height: 300px; }
+
+
+
+
+
+
+
+.form-control:focus {
+	border-color: #CCC;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+	box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+}
+
+
+
+
+
+
+
+
+
 
 
 
