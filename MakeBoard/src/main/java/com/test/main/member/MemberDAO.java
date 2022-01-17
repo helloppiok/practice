@@ -36,7 +36,7 @@ public class MemberDAO {
 			
 			//쿼리작업에 스트링포맷은 비권장한다.
 			// ? = 오라클 매개변수 => %s 역할 
-			String sql = "select * from tblLogin where id = ? and pw = ?";
+			String sql = "select * from tblUser where id = ? and pw = ?";
 			
 			//차이점임(아래와 비교, 여기서 실행 코드 아님 비교하려고 적은 것)
 //			stat = conn.createStatement();
@@ -63,15 +63,16 @@ public class MemberDAO {
 			
 			}
 			
+
 		} catch (Exception e) {
+			System.out.println("MemberDAO.login()");
 			e.printStackTrace();
 		}
 		
-		
 		return null;
 	}
+	
 }
-
 
 
 

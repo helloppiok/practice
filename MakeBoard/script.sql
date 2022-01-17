@@ -1,24 +1,25 @@
+-- D:\class\server\Code\script.sql
 
+drop table tblUser;
 
-create table tblLogin (
+create table tblUser (
     id varchar2(30) primary key,
     pw varchar2(30) not null,
     name varchar2(30) not null,
     lv number(1) default 3 not null
 );
 
-insert into tblLogin (id, pw, name, lv) values ('test', '1111', '테스트', default);
-insert into tblLogin (id, pw, name, lv) values ('admin', '1111', '관리자', 1);
-insert into tblLogin (id, pw, name, lv) values ('hong', '1111', '회원', 2);
+insert into tblUser (id, pw, name, lv) values ('hong', '1111', '홍길동', default);
+insert into tblUser (id, pw, name, lv) values ('test', '1111', '테스트', default);
+insert into tblUser (id, pw, name, lv) values ('admin', '1111', '관리자', 1);
 
-select * from tblLogin;
+select * from tblUser;
 
 commit;
 
 
 
 
-drop table tblBoard;
 
 -- 게시판 테이블
 create table tblBoard (
@@ -32,7 +33,6 @@ create table tblBoard (
 );
 
 create sequence seqBoard;
-drop sequence seqBoard;
 
 insert into tblBoard (seq, id, subject, content, regdate, readcount, userip)
     values (seqBoard.nextVal, 'hong', '게시판입니다.', '내용입니다.', default, default, '127.0.0.1');
@@ -46,15 +46,16 @@ delete from tblBoard where seq = 1;
 commit;
 
 
--- 뷰안에서는 order by 비권장
+
 -- 게시판 뷰
 create or replace view vwBoard
 as
 select 
-    seq, subject, id, (select name from tblLogin where id = tblBoard.id) as name, regdate, readcount,
+    seq, subject, id, (select name from tblUser where id = tblBoard.id) as name, regdate, readcount,
     (sysdate - regdate) as isnew
-from tblBoard;
-			
+    from tblBoard;
+
+
 
 delete from tblBoard;
 
@@ -73,23 +74,12 @@ insert into tblBoard (seq, id, subject, content, regdate, readcount, userip)
 insert into tblBoard (seq, id, subject, content, regdate, readcount, userip)
     values (seqBoard.nextVal, 'hong', '게시만 계속 만드는 중입니다..', '내용입니다.', to_date('2022-01-13 11:20:00', 'yyyy-mm-dd hh24:mi:ss'), default, '127.0.0.1');
 
-
 commit;
 
 
-select tblBoard.*, (select name from tblLogin where id = tblBoard.id) as name from tblBoard;
-select * from vwBoard;
 
 
-
-
-
-
-
-
-
-
-
+select tblBoard.*, (select name from tblUser where id = tblBoard.id) as name from tblBoard;
 
 
 

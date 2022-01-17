@@ -5,34 +5,34 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import org.w3c.dom.bootstrap.DOMImplementationRegistry;
 
 import com.test.jdbc.DBUtil;
 
+
+//*** DAO에서는 데이터 조작하지 않는다. 데이터 입출력만 한다.
 public class BoardDAO {
 
 	private Connection conn;
-	private Statement stat;
-	private PreparedStatement pstat;
+	private Statement stat; //매개변수X
+	private PreparedStatement pstat; //매개변수O
 	private ResultSet rs;
 	
 	public BoardDAO() {
+		
 		try {
-			
+
 			conn = DBUtil.open();
 			stat = conn.createStatement();
-			
-			
+
 		} catch (Exception e) {
 			System.out.println("BoardDAO.BoardDAO()");
 			e.printStackTrace();
 		}
-	
+		
 	}
-	
-	
-	//---------------------------------------------------------------------
-	
+
 	public int add(BoardDTO dto) {
 		
 		try {
@@ -54,9 +54,9 @@ public class BoardDAO {
 		
 		return 0;
 	}
+
 	
-	
-	
+	//List 서블릿이 목록주세요~ 라고 요청
 	public ArrayList<BoardDTO> list() {
 		
 		try {
@@ -93,13 +93,12 @@ public class BoardDAO {
 		return null;
 	}
 
-	
 	//View 서블릿이 글번호를 줄테니 레코드(DTO)를 주세요~
 	public BoardDTO get(String seq) {
 		
 		try {
 
-			String sql = "select tblBoard.*, (select name from tblLogin where id = tblBoard.id) as name from tblBoard where seq = ?";
+			String sql = "select tblBoard.*, (select name from tblUser where id = tblBoard.id) as name from tblBoard where seq = ?";
 			
 			pstat = conn.prepareStatement(sql);
 			
@@ -129,8 +128,7 @@ public class BoardDAO {
 		
 		return null;
 	}
-	
-	
+
 	//View 서블릿이 글번호를 줄테니 조회수 +1 해주세요~
 	public void addReadCount(String seq) {
 		
@@ -149,16 +147,48 @@ public class BoardDAO {
 		
 	}
 
-	
+	//EditOk 서블릿이 DTO를 줄테니 수정해주세요~
+	public int edit(BoardDTO dto) {
+
+		try {
+
+			String sql = "update tblBoard set subject = ?, content = ? where seq = ?";
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getSubject());
+			pstat.setString(2, dto.getContent());
+			pstat.setString(3, dto.getSeq());
+			
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("BoardDAO.edit()");
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	//DelOk 서블릿이 글번호를 줄테니 글을 삭제주세요~
+	public int del(String seq) {
+		
+		try {
+
+			String sql = "delete from tblBoard where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("BoardDAO.del()");
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 	
 }
-
-
-
-
-
-
-
 
 
 

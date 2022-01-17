@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Code</title>
+<title>Hello ppiok</title>
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>

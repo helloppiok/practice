@@ -15,10 +15,11 @@ public class View extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		
+		//1.
 		String seq = req.getParameter("seq");
 		
+		//2.
 		BoardDAO dao = new BoardDAO();
 		
 		HttpSession session = req.getSession();
@@ -32,8 +33,24 @@ public class View extends HttpServlet {
 		BoardDTO dto = dao.get(seq);
 		
 		
+		//2.5
+		//제목과 내용에 들어있는 태그를 비활성화
+		dto.setSubject(dto.getSubject().replace("<", "&lt;").replace(">", "&gt;"));
+		dto.setContent(dto.getContent().replace("<", "&lt;").replace(">", "&gt;"));
+		
+		
+		//개행 문자 처리
+		dto.setContent(dto.getContent().replace("\r\n", "<br>"));
+		
+		
+		//3.
+		req.setAttribute("dto", dto);
+
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/view.jsp");
 		dispatcher.forward(req, resp);
-
 	}
+
 }
+
+
+

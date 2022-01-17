@@ -11,8 +11,8 @@
 </style>
 </head>
 <body>
-	
-<main class="main">
+	<!-- board/add.jsp > board/view.jsp -->
+	<main class="main">
 		<%@include file="/WEB-INF/views/inc/header.jsp" %>
 		<section class="content">
 			
@@ -38,16 +38,14 @@
 					<th>내용</th>
 					<td style="height:300px;vertical-align:middle;">${dto.content}</td>
 				</tr>
-			</table>			
+			</table>
 			
 			<div class="btns">
 			
 				<input type="button" value="돌아가기"
 					class="btn btn-default"
-					onclick="location.href='/makeboard/board/list.do?column=${column}&word=${word}';">
+					onclick="location.href='/makeboard/board/list.do';">
 				
-				
-				<!-- 세션안의 아이디와 dto안의 아이디가 같을때~ -->
 				<c:if test="${not empty id && dto.id == id}">
 				<input type="button" value="수정하기"
 					class="btn btn-primary"
@@ -58,7 +56,6 @@
 					onclick="location.href='/makeboard/board/del.do?seq=${dto.seq}';">
 				</c:if>						
 			</div>
-			</form>
 			
 			
 		</section>

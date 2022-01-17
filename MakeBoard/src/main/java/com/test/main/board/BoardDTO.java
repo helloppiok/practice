@@ -1,5 +1,6 @@
 package com.test.main.board;
 
+//오라클 테이블 1개당 > DTO 클래스 1개 생성
 public class BoardDTO {
 	
 	private String seq;
@@ -10,9 +11,8 @@ public class BoardDTO {
 	private int readcount;
 	private String userip;
 	
-	private String name;
+	private String name; //작성자 이름
 	private double isnew; //새글 유무
-	
 	
 	public double getIsnew() {
 		return isnew;
@@ -20,16 +20,12 @@ public class BoardDTO {
 	public void setIsnew(double isnew) {
 		this.isnew = isnew;
 	}
-	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
 	public String getSeq() {
 		return seq;
 	}
@@ -72,8 +68,5 @@ public class BoardDTO {
 	public void setUserip(String userip) {
 		this.userip = userip;
 	}
-	
-	
-	
 	
 }

@@ -16,7 +16,6 @@ public class Member extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/member/member.jsp");
-
 		dispatcher.forward(req, resp);
 
 	}

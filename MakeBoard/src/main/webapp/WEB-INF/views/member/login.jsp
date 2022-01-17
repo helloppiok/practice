@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Code</title>
+<title>Hello ppiok</title>
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
 <style>
 	
@@ -46,14 +46,19 @@
 			5. 로그인 정보
  		-->  		
   		
+	<!-- member/login.jsp -->
+	<main class="main">
+		<%@include file="/WEB-INF/views/inc/header.jsp" %>
+		<section class="content">
+			
 			<div class="panel panel-default">
-				<div class="panel-heading">로그인</div>
+				<div class="panel-heading">회원</div>
 				<div class="panel-body">
 				
 					<form method="POST" action="/makeboard/member/loginok.do">
 						<input type="text" name="id" class="form-control" placeholder="아이디" required autofocus>
 						<input type="password" name="pw" class="form-control" placeholder="비밀번호" required>
-						<input type="submit" value="확인" class="btn btn-default">
+						<input type="submit" value="로그인" class="btn btn-default">
 					</form>
 					
 				</div>
