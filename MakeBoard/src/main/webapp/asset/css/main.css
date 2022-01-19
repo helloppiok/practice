@@ -12,7 +12,7 @@ body, p, div, span, a, table, th, td, input, textarea, option, ul, ol, li, dl, d
 }
 
 html, body {
-	background-color: #EEE;
+	background-color: #fcd5ce;
 }
 
 html {
@@ -20,7 +20,7 @@ html {
 }
 
 .main {
-	background-color: #FFF;
+	background-color: #f8edeb;
 	width: 800px;
 	height: 100vh;
 	border-left: 1px solid #999;
